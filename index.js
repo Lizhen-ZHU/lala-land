@@ -308,11 +308,11 @@ var pageHtmlCode = {
       
         <div class="videowrapper">
           
-              <video class='video video1' id="v1" src="" autoplay loop></video> 
-              <video class='video video2' id="v2" src="" autoplay loop></video> 
-              <video class='video video3' id="v3" src="" autoplay loop></video>
-              <video class='video video4' id="v4" src="" autoplay loop></video>
-              <video class='video video5' id="v5" src="" autoplay loop></video> 
+              <video class='video video1 map-video' id="v1" src="" autoplay loop></video> 
+              <video class='video video2 map-video' id="v2" src="" autoplay loop></video> 
+              <video class='video video3 map-video' id="v3" src="" autoplay loop></video>
+              <video class='video video4 map-video' id="v4" src="" autoplay loop></video>
+              <video class='video video5 map-video' id="v5" src="" autoplay loop></video> 
               </div>
               
               <div class="close"></div>
@@ -500,7 +500,7 @@ var JSCode = {
             wrapperEl.classList.remove('active');                   
             musicOperation($('.global-music')[0], true)
             
-            $("video").each(function(){
+            $("map-video").each(function(){
               $(this).get(0).pause();   
           });
                     })
