@@ -500,8 +500,9 @@ var JSCode = {
             wrapperEl.classList.remove('active');                   
             musicOperation($('.global-music')[0], true)
             
-            $("map-video").each(function(){
+            $(".map-video").each(function(){
               $(this).get(0).pause();   
+              
           });
                     })
 
@@ -587,16 +588,26 @@ function firstPageInputWatcher(e) {
   var inputLength = userInput.length;
   if(userInput === correctOrder.slice(0, inputLength)) {
   if(inputLength === correctOrder.length) {
-    musicOperation($('.global-music')[0], true)
-    removeFromPage($('.pianowrapper')[0], 2, function() {
-      showEndorsement();
-      showPage('.trailer-page', '', function() {
-        document.body.removeEventListener('keypress', firstPageInputWatcher)
-      })
-    })
+    enterSecondPage();
   }
   }else {
   userInput = '';
   alert('Please type "GHJT"')
   }
 }
+
+// enter to the next page from the first page
+function enterSecondPage() {
+  musicOperation($('.global-music')[0], true)
+    removeFromPage($('.pianowrapper')[0], 2, function() {
+      showEndorsement();
+      showPage('.trailer-page', '', function() {
+        document.body.removeEventListener('keypress', firstPageInputWatcher)
+      })
+    })
+}
+
+// click the arrow to enter the second page as well
+$("#enterPage").click(()=> {
+  enterSecondPage();
+})
